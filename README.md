@@ -52,8 +52,8 @@ The folder structure of the application is as follows:
 - README.md
 
 # Technologies Used
-React: JavaScript library for building user interfaces.
-Chart.js: Used for rendering sales data as bar charts.
-Ant Design: UI components for building the user interface.
-Axios: HTTP client for making API requests.
-Day.js: Library for date handling.
+- React: JavaScript library for building user interfaces.
+- Chart.js: Used for rendering sales data as bar charts.
+- Ant Design: UI components for building the user interface.
+- Axios: HTTP client for making API requests.
+- Day.js: Library for date handling.
