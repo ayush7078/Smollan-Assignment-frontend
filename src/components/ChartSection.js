@@ -18,9 +18,9 @@ const ChartSection = ({ salesData }) => {
   }
 
   // Prepare the data for the chart
-  const labels = salesData.map((item) => item.product); // Product names as labels
-  const sales = salesData.map((item) => item.sales); // Sales quantities
-  const revenue = salesData.map((item) => item.revenue); // Revenue values
+  const labels = salesData.map((item) => item.product); 
+  const sales = salesData.map((item) => item.sales); 
+  const revenue = salesData.map((item) => item.revenue); 
 
   const data = {
     labels: labels,
@@ -67,11 +67,11 @@ const ChartSection = ({ salesData }) => {
   return (
     <div
       style={{
-        display: "flex",          // Enable flexbox
-        justifyContent: "center", // Center horizontally
-        alignItems: "center",     // Center vertically
-        width: "100%",            // Full width of the container
-        height: "200px",          // Set a specific height for the chart container
+        display: "flex",          
+        justifyContent: "center", 
+        alignItems: "center",     
+        width: "100%",            
+        height: "200px",          
       }}
     >
       <Bar data={data} options={options} />

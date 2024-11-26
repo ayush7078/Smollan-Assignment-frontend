@@ -6,6 +6,7 @@ import InfoSection from "./components/InfoSection";
 import dayjs from "dayjs";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore); 
@@ -15,22 +16,22 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState("All Products");
   const [salesData, setSalesData] = useState([]);
-  const [dateRange, setDateRange] = useState(null); // Will hold the selected date range
+  const [dateRange, setDateRange] = useState(null); 
   const [salesQuantityRange, setSalesQuantityRange] = useState([0, 500]);
   const [revenueRange, setRevenueRange] = useState([0, 5000]);
   const [info, setInfo] = useState({
     filter: "All Products",
     source: "Internal Sales Database",
-    dateRange: "All Dates", // Display default range as "All Dates"
-    salesQuantityRange: [0, 500],  // Default sales quantity range
-    revenueRange: [0, 5000],  // Default revenue range
+    dateRange: "All Dates", 
+    salesQuantityRange: [0, 500],  
+    revenueRange: [0, 5000],  
   });
 
   useEffect(() => {
     // Fetch products from API
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://smollan-assignment-backend-production.up.railway.app/api/sales");
+        const response = await axios.get(`${backendUrl}api/sales`);
         const uniqueProducts = [
           "All Products",
           ...new Set(response.data.map((item) => item.product)),
@@ -77,7 +78,7 @@ const App = () => {
     setSalesQuantityRange(range);
     setInfo({
       ...info,
-      salesQuantityRange: range, // Update sales quantity range
+      salesQuantityRange: range, 
     });
   };
 
@@ -85,7 +86,7 @@ const App = () => {
     setRevenueRange(range);
     setInfo({
       ...info,
-      revenueRange: range, // Update revenue range
+      revenueRange: range, 
     });
   };
 

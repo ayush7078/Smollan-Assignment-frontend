@@ -2,7 +2,6 @@ import React from "react";
 import { Table } from "antd";
 
 const SalesTable = ({ salesData }) => {
-  // Define columns for the Ant Design table
   const columns = [
     {
       title: "Product",
@@ -23,25 +22,23 @@ const SalesTable = ({ salesData }) => {
       title: "Revenue",
       dataIndex: "revenue",
       key: "revenue",
-      render: (text) => `$${text.toFixed(2)}`, // Format revenue as currency
+      render: (text) => `$${text.toFixed(2)}`, 
     },
   ];
 
-  // Pagination configuration
   const paginationConfig = {
     pageSize: 5, // Set how many rows per page
     showSizeChanger: true, // Allow user to change the page size
     pageSizeOptions: ["5", "10", "20"], // Options for how many rows to show
-    position: ["bottomRight"], // Position the pagination at the bottom-right
+    position: ["bottomRight"], 
   };
 
-  // Render the table with pagination
   return (
     <Table
       columns={columns}
       dataSource={salesData}
       pagination={paginationConfig}
-      rowKey="date" // Unique key for each row, use 'date' or any unique identifier
+      rowKey="date" 
     />
   );
 };
